@@ -2,9 +2,9 @@
 #include <stdioh>
 #include <unistd.h>
 /**
- *_printf- a funtion that behaves like the stdio.h printf();
+ *_printf - a funtion that behaves like the stdio.h printf();
  *@format: points to a constant format list
- *Retunr: 0 or result
+ *Return: 0 or result
  */
 int _printf(const char *format, ...)
 {
@@ -34,11 +34,11 @@ int _printf(const char *format, ...)
 	} /*end outer while*/
 	va_end(args);
 	_putchar("\n");
+	return (0);
 } /*end function*/
 
 /**
  *print_char- a function that prints a char
- *@separator: points to a char with something assigned
  *@args: argument of the list
  */
 void print_char(va_list args)
@@ -48,14 +48,14 @@ void print_char(va_list args)
 
 /**
  *print_string- a function that prints an string
- *@separator: points to a char with something assigned
  *@args: argument of the list
  */
-void print_string( va_list args)
+void print_string(va_list args)
 {
 	/*Variables*/
 	char *string;
-	string = va_arg(args, char *);
+
+	string = va_arg(args, char*);
 	/*chec if string is empty*/
 	if (args == NULL)
 		string = "(nil)";
@@ -63,13 +63,14 @@ void print_string( va_list args)
 } /*end string*/
 
 /**
- *print_string- a function that prints an string
- *@separator: points to a char with something assigned
+ *print_mod- a function that prints a %
  *@args: argument of the list
  */
-void print_mod(va_list arg)
+void print_mod(va_list args)
 {
+	/*variable*/
 	char *string;
+
 	string = va_arg(args, int);
 	write(STDOUT_FILENO, string, strlen(string));
 } /*end mod*/
