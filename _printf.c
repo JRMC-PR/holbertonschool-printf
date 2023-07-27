@@ -12,7 +12,7 @@
 int _printf(const char *format, ...)
 {
 	/* Variables */
-	unsigned int i = 0, j = 0;
+	unsigned int i = 0, j = 0, found = 0;
 	int printed_chars = 0; /** To keep track of the total characters printed */
 	print func_type[] = {
 		{"c", print_char},
@@ -38,13 +38,20 @@ int _printf(const char *format, ...)
 				/*compare where stand with the indicators*/
 				if (format[i + 1] == *func_type[j].indi)
 				{
-					
+
 					printed_chars += func_type[j].handler(args);
 					i++; /* Skip the next character when % is found */
+					found = 1; /*boolian*/
 					break;
 				} /*end if*/
 				j++;
 			} /*end inner while*/
+			/*If no format specifier is found, print the '%' character itself*/
+			if (!found)
+			{
+				_putchar('%');
+				printed_chars++;
+			}
 		}
 		else
 		{
