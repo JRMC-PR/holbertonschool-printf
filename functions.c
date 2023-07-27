@@ -3,50 +3,59 @@
 #include <unistd.h>
 #include <string.h>
 
-/**
- *print_char- a function that prints a char
- *@args: argument of the list
- */
-int print_char(va_list args)
-{
-	int the_thing, count = 0;
-	the_thing = va_arg(args, int);
-	write(1, &the_thing, 1);
-	count++;
-	return (count);
-} /*end char*/
 
 /**
- *print_string- a function that prints an string
- *@args: argument of the list
+ * print_char - a function that prints a char
+ * @args: argument of the list
  */
-int print_string(va_list args)
+void print_char(va_list args)
 {
-	/*Variables*/
-	char *string = va_arg(args, char*);
-	int count = 0;
+	_putchar(va_arg(args, int));
+}
 
-	/*chec if string is empty*/
-	if (args == NULL)
+
+/**
+ * print_int - a function that prints an integer
+ * @args: argument of the list
+ */
+void print_int(va_list args)
+{
+	int num = va_arg(args, int);
+	char buffer[12]; /** store the int string, size of int buffer */
+	int printed_chars = 0;
+
+	int chars_written = sprintf(buffer, "%d", num);
+	if (chars_written > 0)
+	{
+		printed_chars = write(STDOUT_FILENO, buffer, chars_written);
+	}
+
+	if (printed_chars <= 0)
+	{
+		write(STDOUT_FILENO, "Conversion error", 16);
+	}
+}
+
+/**
+ * print_string - a function that prints a string
+ * @args: argument of the list
+ */
+void print_string(va_list args)
+{
+	char *string = va_arg(args, char *);
+	if (string == NULL)
 		string = "(nil)";
-	/*print every char*/
-	write(1, string, strlen(string));
-	count++;
-	return (count);
-} /*end string*/
+	write(STDOUT_FILENO, string, strlen(string));
+}
 
 /**
- *print_mod- a function that prints a %
- *@args: argument of the list
+ * print_mod - a function that prints a %
+ * @args: argument of the list
  */
-int  print_mod(va_list args)
+void print_mod(va_list args)
 {
-	/*variable*/
-	char mod = va_arg(args, int);
-	int count = 0;
-	/*print value*/
-	write(1, &mod, 1);
-	count++;
-	return (count);
-} /*end mod*/
 
+	char character = '%';
+	write(STDOUT_FILENO, &character, 1);
+	(void)args;
+}
