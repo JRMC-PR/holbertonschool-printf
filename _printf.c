@@ -25,30 +25,35 @@ int _printf(const char *format, ...)
 
 	/* Start argument iteration */
 	va_start(args, format);
+	/*Verify that format is not NULL*/
 	while (format != NULL && format[i])
 	{
+		/*check for th emod formater*/
 		if (format[i] == '%')
 		{
 			j = 0;
+			/*Move through the stuct indicators */
 			while (j < 5)
 			{
+				/*compare where stand with the indicators*/
 				if (format[i + 1] == *func_type[j].indi)
 				{
-					func_type[j].handler(args);
+					
+					printed_chars += func_type[j].handler(args);
 					i++; /* Skip the next character when % is found */
 					break;
-				}
+				} /*end if*/
 				j++;
-			}
+			} /*end inner while*/
 		}
 		else
 		{
 			_putchar(format[i]);
 			printed_chars++;
-		}
+		} /*end outer if else*/
 		i++;
-	}
+	} /*en douter while*/
 	va_end(args);
 	return (printed_chars);
-}
+} /*end function*/
 
