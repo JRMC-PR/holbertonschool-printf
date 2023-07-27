@@ -24,6 +24,10 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+				while (format[i + 1] == ' ')
+				{
+					i++;
+				} /*end while*/
 			for (j = 0; j < 5; j++)
 			{
 				if (format[i + 1] == *func_type[j].indi)
