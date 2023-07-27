@@ -6,7 +6,7 @@
 /**
  * print_char - a function that prints a char
  * @args: argument of the list
- *
+ *Return: count
  */
 int print_char(va_list args)
 {
@@ -21,6 +21,7 @@ int print_char(va_list args)
 /**
  * print_int - a function that prints an integer
  * @args: argument of the list
+ * Return: count
  */
 int print_int(va_list args)
 {
@@ -45,6 +46,7 @@ int print_int(va_list args)
 /**
  * print_mod - a function that prints a %
  * @args: argument of the list
+ * Return: count
  */
 int print_mod(va_list args)
 {
@@ -61,6 +63,7 @@ int print_mod(va_list args)
 /**
  * print_string - a function that prints a string
  * @args: argument of the list
+ * Return: count
  */
 int print_string(va_list args)
 {
