@@ -11,42 +11,29 @@
 
 int _printf(const char *format, ...)
 {
-	/* Variables */
-	unsigned int i = 0, j = 0, found = 0;
-	int printed_chars = 0; /** To keep track of the total characters printed */
-	print func_type[] = {
-		{"c", print_char},
+	int i = 0, j = 0, found = 0, printed_chars = 0;
+	print func_type[] = {{"c", print_char},
 		{"s", print_string},
 		{"%", print_mod},
 		{"d", print_int},
-		{"i", print_int},
-		{NULL, NULL}};
+		{"i", print_int}};
 	va_list args;
 
-	/* Start argument iteration */
 	va_start(args, format);
-	/*Verify that format is not NULL*/
 	while (format != NULL && format[i])
 	{
-		/*check for th emod formater*/
 		if (format[i] == '%')
 		{
-			j = 0;
-			/*Move through the stuct indicators */
-			while (j < 5)
+			for (j = 0; j < 5; j++)
 			{
-				/*compare where stand with the indicators*/
 				if (format[i + 1] == *func_type[j].indi)
 				{
-
 					printed_chars += func_type[j].handler(args);
 					i++; /* Skip the next character when % is found */
 					found = 1; /*boolian*/
 					break;
 				} /*end if*/
-				j++;
 			} /*end inner while*/
-			/*If no format specifier is found, print the '%' character itself*/
 			if (!found)
 			{
 				_putchar('%');
