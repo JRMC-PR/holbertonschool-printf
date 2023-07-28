@@ -61,7 +61,7 @@ Specifier                |Output                        |Examples |
 
 |Name                |Information                        |Relevant Files                         |
 |----------------|-------------------------------|-----------------------------|
-|`manprintf.1|Man page of the _printf() function.| `None` |
+|`manprintf.1` |Man page of the _printf() function.| `None` |
 |`main.h`	| Header file with the data type struct, standard libraries and custom prototypes.| `*.c compilation` |
 |`_printf.c`|Main printf function file. Calls other functions.|`printf_(name of var).c file` |
 |`printf_int.c` | Contains decimal and integer functions. | `None` | 
