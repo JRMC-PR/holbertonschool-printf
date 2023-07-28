@@ -35,11 +35,6 @@ int print_int(va_list args)
 	{
 		printed_chars += write(STDOUT_FILENO, buffer, chars_written);
 	}
-
-	if (printed_chars <= 0)
-	{
-		write(STDOUT_FILENO, "Conversion error", 16);
-	}
 	return (count);
 }
 
