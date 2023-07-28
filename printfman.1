@@ -1,0 +1,79 @@
+.TH PRINTF 3 "2023-07-25" "Version 1.0" "User Commands"
+
+.SH NAME
+printf - Write formatted output to the standard output
+
+.SH SYNOPSIS
+.B #include <stdio.h>
+.br
+.B int printf(const char *restrict format, ...);
+
+.SH DESCRIPTION
+The \fBprintf\fP function writes the output to the standard output (stdout) under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output.
+
+Conversion specifiers: The following conversion specifiers can be used in the format string:
+
+.TP
+.B %c
+print a single character.
+
+.TP
+.B %s
+print a string.
+
+.TP
+.B %d
+print an integer as a signed decimal (base 10) number.
+
+.TP
+.B %i
+print an integer as a signed decimal (base 10) number. Same as "%d".
+
+.TP
+.B %%
+print a percent sign (%).
+
+.SH RETURN VALUE
+The \fBprintf\fP function returns the total number of characters written to the standard output. If an output error occurs, the function returns a negative value.
+
+.SH EXAMPLES
+The following examples demonstrate the usage of the \fBprintf\fP function:
+
+.B #include <stdio.h>
+.br
+.B int main() {
+.br
+.B \ \ \ char character = 'A';
+.br
+.B \ \ \ char *string = "Hello, world!";
+.br
+.B \ \ \ int integer = 42;
+.br
+.B \ \ \ printf("Character: %c\n", character);
+.br
+.B \ \ \ printf("String: %s\n", string);
+.br
+.B \ \ \ printf("Integer: %d\n", integer); /* or use "%i" for printing integer, depending on the case */
+.br
+.B \ \ \ return 0;
+.br
+.B }
+
+This would output:
+
+.B Character: A
+.br
+.B String: Hello, world!
+.br
+.B Integer: 42
+
+.SH SEE ALSO
+.B printf(1), _printf(2), sprintf(3), snprintf(3), vsprintf(3), vsnprintf(3), stdarg(3).
+
+.SH AUTHOR
+The \fBprintf\fP function is part of the standard C library.
+
+.SH COPYRIGHT
+Copyright (C) [2023] [Puga][Jesus].
+
+
