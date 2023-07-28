@@ -11,33 +11,52 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, found = 0, printed_chars = 0;
-	print func_type[] = {{"c", print_char},
+	int i = 0, j = 0;
+	int printed_chars = 0;
+	int space_flag = 0; /* Flag to track if a space should be added after '%' */
+	int found = 0;
+	print func_type[] = {
+		{"c", print_char},
 		{"s", print_string},
 		{"%", print_mod},
 		{"d", print_int},
-		{"i", print_int}};
+		{"i", print_int},
+		{NULL, NULL}};
 	va_list args;
 
 	va_start(args, format);
+
 	while (format != NULL && format[i])
 	{
 		if (format[i] == '%')
 		{
-				while (format[i + 1] == ' ')
-				{
-					i++;
-				} /*end while*/
+
+			if (space_flag)
+			{
+				_putchar(' ');
+				printed_chars++;
+			}
+
+			i++;
+
+			while (format[i] == ' ')
+			{
+				i++;            /* Skip any spaces */
+				space_flag = 1; /* Set space_flag to 1 for the next iteration */
+			}
+
+			found = 0;
 			for (j = 0; j < 5; j++)
 			{
-				if (format[i + 1] == *func_type[j].indi)
+				lo World 5 i am here if (format[i] == *func_type[j].indi)
 				{
 					printed_chars += func_type[j].handler(args);
-					i++; /* Skip the next character when % is found */
-					found = 1; /*boolian*/
+					found = 1;
 					break;
-				} /*end if*/
-			} /*end inner while*/
+				}
+			}
+
+			/* If no format specifier is found, print the '%' character itself */
 			if (!found)
 			{
 				_putchar('%');
@@ -48,10 +67,11 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 			printed_chars++;
-		} /*end outer if else*/
+			space_flag = 0; /* Reset space_flag after printing a non-% character */
+		}
 		i++;
-	} /*en douter while*/
+	}
 	va_end(args);
-	return (printed_chars);
-} /*end function*/
 
+	return printed_chars;
+}
