@@ -66,7 +66,7 @@ Specifier                |Output                        |Examples |
 \`_printf.c`|Main printf function file. Calls other functions.|`printf_(name of var).c file` |
 \`_putchar.c` | Custom putchar function. | `None` |
 \`functions.c` \ Define functions. \ `main.h` |
-\`get_function.c` \ Function handler \ `_printf.c main.h` |
+\`get_function.c` \ Function handler. \ `_printf.c main.h` |
 
 
 ------------
