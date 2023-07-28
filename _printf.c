@@ -25,6 +25,9 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+
 	while (format != NULL && format[i])
 	{
 		if (format[i] == '%')
@@ -32,10 +35,7 @@ int _printf(const char *format, ...)
 			i++;
 			while (format[i] == ' ')
 				i++;
-			while (format[i + 1] == ' ')
-			{
-				i++; /* Skip any spaces */
-			}
+
 			found = 0;
 			for (j = 0; j < 5; j++)
 			{
