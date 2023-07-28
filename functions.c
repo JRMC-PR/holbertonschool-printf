@@ -85,7 +85,7 @@ int print_string(va_list args)
 	long unsigned int i = 0;
 
 	if (string == NULL)
-		string = "(nil)";
+		return (-1);
 	for (i = 0; i < strlen(string); i++)
 	{
 		write(1, &string[i], 1);
