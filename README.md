@@ -63,11 +63,10 @@ Specifier                |Output                        |Examples |
 |----------------|-------------------------------|-----------------------------|
 |`manprintf.1` |Man page of the _printf() function.| `None` |
 |`main.h`	| Header file with the data type struct, standard libraries and custom prototypes.| `*.c compilation` |
-|`_printf.c`|Main printf function file. Calls other functions.|`printf_(name of var).c file` |
-|`printf_int.c` | Contains decimal and integer functions. | `None` | 
-`printf_char.c` | Custom function for char data type. | `None`
-|`printf_string.c` | Function that calls string type variable. | `None` |
+\`_printf.c`|Main printf function file. Calls other functions.|`printf_(name of var).c file` |
 `_putchar.c` | Custom putchar function. | `None` |
+\`functions.c` \ Define functions. \ `main.h` \
+\`get_function.c` \ Function handler \ `_printf.c main.h` \
 
 
 ------------
