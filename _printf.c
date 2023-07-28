@@ -37,6 +37,8 @@ int _printf(const char *format, ...)
 				printed_chars++;
 			}
 
+			space_flag = 1; /* Set space_flag to 1 for the next iteration */
+
 			i++;
 
 			while (format[i] == ' ')
@@ -48,7 +50,7 @@ int _printf(const char *format, ...)
 			found = 0;
 			for (j = 0; j < 5; j++)
 			{
-				lo World 5 i am here if (format[i] == *func_type[j].indi)
+				if (format[i] == *func_type[j].indi)
 				{
 					printed_chars += func_type[j].handler(args);
 					found = 1;
