@@ -1,4 +1,4 @@
-# printf
+# _printf();
 
 ### Description
 
@@ -70,5 +70,11 @@ Specifier                |Output                        |Examples |
 
 
 ------------
+
+###### Authors
+
+Alexander G. Puga Melendez
+
+Jesus R. Mendez Cruz
 
 
