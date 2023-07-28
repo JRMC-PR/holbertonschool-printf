@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 				}
 			}
 			/* If no format specifier is found, print the '%' character itself */
-			if (!found)
+			if (!found && format[i] != '\0')
 			{
 				_putchar('%');
 				printed_chars++;
