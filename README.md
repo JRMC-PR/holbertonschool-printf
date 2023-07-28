@@ -62,11 +62,11 @@ Specifier                |Output                        |Examples |
 |Name                |Information                        |Relevant Files                         |
 |----------------|-------------------------------|-----------------------------|
 |`manprintf.1` |Man page of the _printf() function.| `None` |
-|`main.h`	| Header file with the data type struct, standard libraries and custom prototypes.| `*.c compilation` |
+|`main.h`| Header file with the data type struct, standard libraries and custom prototypes.| `*.c compilation` |
 \`_printf.c`|Main printf function file. Calls other functions.|`printf_(name of var).c file` |
 `_putchar.c` | Custom putchar function. | `None` |
-\`functions.c` \ Define functions. \ `main.h` \
-\`get_function.c` \ Function handler \ `_printf.c main.h` \
+\`functions.c` \ Define functions. \ `main.h` |
+\`get_function.c` \ Function handler \ `_printf.c main.h` |
 
 
 ------------
