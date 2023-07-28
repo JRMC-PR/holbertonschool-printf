@@ -29,14 +29,13 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-
 			i++;
-
 			while (format[i] == ' ')
+				i++;
+			while (format[i + 1] == ' ')
 			{
 				i++; /* Skip any spaces */
 			}
-
 			found = 0;
 			for (j = 0; j < 5; j++)
 			{
@@ -47,12 +46,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-
 			/* If no format specifier is found, print the '%' character itself */
 			if (!found)
 			{
 				_putchar('%');
 				printed_chars++;
+				i--;
 			}
 		}
 		else
