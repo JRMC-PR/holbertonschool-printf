@@ -13,7 +13,6 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0;
 	int printed_chars = 0;
-	int space_flag = 0; /* Flag to track if a space should be added after '%' */
 	int found = 0;
 	print func_type[] = {
 		{"c", print_char},
@@ -31,20 +30,11 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 
-			if (space_flag)
-			{
-				_putchar(' ');
-				printed_chars++;
-			}
-
-			space_flag = 1; /* Set space_flag to 1 for the next iteration */
-
 			i++;
 
 			while (format[i] == ' ')
 			{
-				i++;            /* Skip any spaces */
-				space_flag = 1; /* Set space_flag to 1 for the next iteration */
+				i++; /* Skip any spaces */
 			}
 
 			found = 0;
@@ -69,7 +59,6 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 			printed_chars++;
-			space_flag = 0; /* Reset space_flag after printing a non-% character */
 		}
 		i++;
 	}
