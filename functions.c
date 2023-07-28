@@ -82,11 +82,11 @@ int print_string(va_list args)
 	/*Variales*/
 	char *string = va_arg(args, char *);
 	int count = 0;
-	long unsigned int i = 0;
+	int i = 0;
 
 	if (string == NULL)
-		return (-1);
-	for (i = 0; i < strlen(string); i++)
+		string = "(null)";
+	for (i = 0; string[i]; i++)
 	{
 		write(1, &string[i], 1);
 		count++;
