@@ -13,44 +13,51 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, printed_chars = 0;
+
 	va_list args;
 	int (*this_thing)(va_list);
 
 	va_start(args, format);
 	if (format != NULL)
 	{
-		if (format[0] == '%' && format[1] == '\0')
+		if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 			return (-1);
-		while (format != NULL && format[i] != '\0')
+		while (format != NULL && format[i])
 		{
-			if (format[i] == '%' || format[i] == ' ')
+			if (format[0] == '%' && format[1] == '\0')
+				return (-1);
+			while (format != NULL && format[i] != '\0')
 			{
-				while (format[i + 1] == ' ')
-					i++;
-				if (format[i + 1] == '%')
+				if (format[i] == '%')
 				{
-					printed_chars += _putchar(format[i]);
-					i += 2;
-				}
+					while (format[i + 1] == ' ')
+						i++;
+					if (format[i + 1] == '%')
+					{
+						printed_chars += _putchar(format[i]);
+						i += 2;
+					}
+					else
+					{
+						this_thing = get_print(format[i + 1]);
+						if (this_thing)
+							printed_chars += this_thing(args);
+						else
+							printed_chars = _putchar(format[i]) + _putchar(format[i + 1]);
+						i += 2;
+					} /*end if else*/
+				} /*end if */
 				else
 				{
-					this_thing = get_print(format[i + 1]);
-					if (this_thing)
-						printed_chars += this_thing(args);
-					else
-						printed_chars = _putchar(format[i]) + _putchar(format[i + 1]);
-					i += 2;
-				} /*end if else*/
-			} /*end if */
-			else
-			{
-				printed_chars += _putchar(format[i]);
-				i++;
-			} /*end outer if else*/
-		} /*en douter while*/
-		va_end(args);
-		return (printed_chars);
-	}
+					printed_chars += _putchar(format[i]);
+					i++;
+				} /*end outer if else*/
+			} /*en douter while*/
+			va_end(args);
+			return (printed_chars);
+		}
+	
+	} /*end function*/
 	return (-1);
-} /*end function*/
+}
 
