@@ -13,7 +13,6 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, printed_chars = 0;
-
 	va_list args;
 	int (*this_thing)(va_list);
 
@@ -56,7 +55,6 @@ int _printf(const char *format, ...)
 			va_end(args);
 			return (printed_chars);
 		}
-	
 	} /*end function*/
 	return (-1);
 }

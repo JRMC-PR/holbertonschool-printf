@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+/*
+ *get_print- gets function to be used
+ *@format: format to compare
+ *Return: function or null
+ */
 int (*get_print(char format))(va_list)
 {
 	/*Variables*/

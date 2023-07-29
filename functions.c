@@ -6,6 +6,7 @@
 /**
  * print_char - a function that prints a char
  * @args: argument of the list
+ * Return: count
  */
 
 int print_char(va_list args)
@@ -21,6 +22,7 @@ int print_char(va_list args)
 /**
  * print_int - a function that prints an integer
  * @args: argument of the list
+ * Return: count
  */
 int print_int(va_list args)
 {
@@ -64,6 +66,7 @@ int print_int(va_list args)
 /**
  * print_mod - a function that prints a %
  * @args: argument of the list
+ * Return: count
  */
 int print_mod(va_list args)
 {
@@ -77,6 +80,11 @@ int print_mod(va_list args)
 	return (count);
 }
 
+/**
+ * print_string - a function that prints a %
+ * @args: argument of the list
+ * Return: count
+ */
 int print_string(va_list args)
 {
 	/*Variales*/
@@ -86,9 +94,9 @@ int print_string(va_list args)
 
 	if (string == NULL)
 		string = "(null)";
-	for (i = 0; string[i]; i++)
+	for (i = 0; string[i] != '\0'; i++)
 	{
-		write(1, &string[i], 1);
+		_putchar(string[i]);
 		count++;
 	}
 	return (count);
