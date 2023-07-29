@@ -101,3 +101,24 @@ int print_string(va_list args)
 	}
 	return (count);
 }
+
+/**
+ *print_reverse
+ *
+ */
+int print_reverse(va_list args)
+{
+	/*variables*/
+	char *string = va_arg(args, char *);
+	int count = 0;
+	long unsigned int i = 0, size = strlen(string);
+
+	if (string == NULL)
+		string = "(null)";
+	for (i = size; i > 0; i--)
+	{
+		_putchar(string[i]);
+		count++;
+	} /*end for*/
+	return (count);
+} /*end function*/

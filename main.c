@@ -42,6 +42,8 @@ int main(void)
 	printf("Unknown:[%r]\n");
 	_printf("%            s%              d\n", "Hello World", 5);
 	printf("%             s%             d\n", "Hello World", 5);
+	_printf("%r\n", "Hello World");
+	printf("%r\n", "Hello World");
 	return (0);
 }
 

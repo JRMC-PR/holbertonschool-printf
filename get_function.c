@@ -18,6 +18,7 @@ int (*get_print(char format))(va_list)
 		{"%", print_mod},
 		{"d", print_int},
 		{"i", print_int},
+		{"r", print_reverse},
 		{NULL, NULL}
 	};
 	/*finding functions*/
