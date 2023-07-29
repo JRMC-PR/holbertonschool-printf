@@ -23,8 +23,6 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] == '%')
 			{
-				while (format[i + 1] == ' ')
-					i++;
 				if (format[i + 1] == '%')
 				{
 					printed_chars += _putchar(format[i]);
@@ -45,9 +43,9 @@ int _printf(const char *format, ...)
 				printed_chars += _putchar(format[i]);
 				i++;
 			} /*end outer if else*/
-			va_end(args);
-			return (printed_chars);
-		}
+		} /*end while*/
+		va_end(args);
+		return (printed_chars);
 	} /*end function*/
 	return (-1);
 }
