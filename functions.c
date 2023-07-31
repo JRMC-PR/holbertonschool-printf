@@ -103,19 +103,22 @@ int print_string(va_list args)
 }
 
 /**
- *print_reverse
- *
+ *print_reverse - prints revers string
+ *@args: argument of the list
+ *Return: countn
  */
 int print_reverse(va_list args)
 {
 	/*variables*/
 	char *string = va_arg(args, char *);
 	int count = 0;
-	long unsigned int i = 0, size = strlen(string);
+	unsigned long int i = 0, size = 0, cero = 0;
 
 	if (string == NULL)
 		string = "(null)";
-	for (i = size; i > 0; i--)
+	while (string[i])
+		size++;
+	for (i = size; i >= cero; i--)
 	{
 		_putchar(string[i]);
 		count++;
