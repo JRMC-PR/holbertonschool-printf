@@ -5,9 +5,8 @@
 ------------
 
 
-The printf function sends formatted output to stdout.
-A custom _printf() for learning purposes was developed by cohort  #9 students Jimmer and Edward Ortiz.
-_printf() function format string is a character string, beginning and ending in its initial shift state, if any. 
+ The _printf() function is a custom implementation of the printf function in the C standard library. The _printf() function produces output according to a format as described below. The _printf() function writes output to stdout, the standard output stream; it writes the output under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg) are converted for output.
+_printf() function format string is a character string, beginning and ending in its initial shift state, if any.
 These arguments are placed using the percentage '%' operator
 
 ------------
@@ -20,7 +19,7 @@ These arguments are placed using the percentage '%' operator
 
 The code must be compiled this way:
 
-**$ gcc -Wall -Werror -Wextra -pedantic *.c**
+**$ gcc -Wall -Werror -Wextra -pedantic *.c -o printf**
 
 As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
 
@@ -30,7 +29,7 @@ The main files will include your main header file (holberton.h): **#include holb
 
 #### Use & Examples
 
-
+![Outout Example](./printf.png)
 ------------
 
 **Prototype:** int _printf(const char *format, ...);
@@ -75,6 +74,6 @@ Specifier                |Output                        |Examples |
 
 Alexander G. Puga Melendez
 
-Jesus R. Mendez Cruz
+Hey there! Im `Jesus R. Mendez Cruz` you can find me over at:  [GitHub](https://github.com/JRMC-PR) / [linkedin](https://www.linkedin.com/in/jes%C3%BAs-m%C3%A9ndez-068b8a27a/). Im a recenly graduated software engineer from Holberton School. I have a passion for learning and teaching others. I love to code and I am always looking for new challenges and opportunities to grow as a professional.
 
 
